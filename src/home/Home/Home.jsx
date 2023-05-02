@@ -1,18 +1,47 @@
 import React from 'react';
-import banner from '../../assets/banner.jpg'
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import banner1 from '../../assets/3071125.jpg';
+import banner2 from '../../assets/5907476.jpg';
 import ChefSection from '../ChefSection/ChefSection';
+import Footer from '../../share/Footer/Footer';
 
 const Home = () => {
+
+    const carouselItems = [
+        {
+            id: 1,
+            image: banner1,
+            caption: 'Banner 1',
+            description: 'This is the first banner.',
+        },
+        {
+            id: 2,
+            image: banner2,
+            caption: 'Banner 2',
+            description: 'This is the second banner.',
+        },
+        // {
+        //   id: 3,
+        //   image: banner3,
+        //   caption: 'Banner 3',
+        //   description: 'This is the third banner.',
+        // },
+    ];
+
     return (
-        <div className='container mx-auto'>
-            <div className='mt-10 lg:flex items-center gap-10'>
-                <div>
-                    <h1 className='text-7xl font-bold mb-5'>Enjoy food all over the world</h1>
-                    <p className='text-justify text-gray-500'>The flavor of your food is what most customers focus on when they are deciding what to eat. The way you engineer your menu can help build anticipation, and a good menu description could even convince a hesitant customer to try something new. With this in mind, it's important to be precise and thorough when choosing words to describe your food's flavor.</p>
-                </div>
-                <img className='w-[500px]' src={banner} alt="" />
+        <div className="">
+            <div  className="container mx-auto mt-5">
+                <Carousel showThumbs={false} showStatus={false} autoPlay infiniteLoop interval={6000}>
+                    {carouselItems.map((item) => (
+                        <div key={item.id}>
+                            <img src={item.image} alt={item.caption} className="bg-cover rounded-md h-[600px] w-full" />
+                        </div>
+                    ))}
+                </Carousel>
+                <ChefSection></ChefSection>
             </div>
-            <ChefSection></ChefSection>
+                <Footer></Footer>
         </div>
     );
 };
