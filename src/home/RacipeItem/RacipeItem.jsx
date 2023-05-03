@@ -1,11 +1,14 @@
 import React from 'react';
 import racipeBackImage from '../../assets/racipeback.jpg'
 import { Rating } from '@mui/material';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RacipeItem = ({ item }) => {
 
     const { name, cooking_method, ingredients, rating } = item
+    const notify = () => toast("Wow so easy!");
 
     return (
         <div className="card bg-base-100 shadow-xl image-full mb-5 h-[500px]">
@@ -19,7 +22,10 @@ const RacipeItem = ({ item }) => {
                         name="simple-controlled"
                         value={rating}
                     />
-                    <button className='btn gap-2 text-yellow-500'><FaRegHeart className='text-lg'></FaRegHeart> favourit</button>
+                    <div>
+                        <button onClick={notify} className='btn rounded gap-2 text-yellow-500' ><FaRegHeart className='text-lg'></FaRegHeart> favourit</button>
+                        <ToastContainer />
+                    </div>
                 </div>
             </div>
         </div>

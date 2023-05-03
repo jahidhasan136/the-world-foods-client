@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaThumbsUp } from "react-icons/fa";
+import { FaArrowRight, FaThumbsUp } from "react-icons/fa";
 
 const ChefInformation = ({ chefInformation }) => {
 
@@ -18,9 +18,9 @@ const ChefInformation = ({ chefInformation }) => {
                     <p className="flex items-center gap-1 flex-grow-0"><FaThumbsUp className="text-blue-500 cursor-pointer" /> {likes}</p>
                 </div>
                 <div className="card-actions mt-3 flex justify-between">
-                    <button className="btn btn-outline">Purches</button>
-                    <button className="btn btn-outline">
-                        <Link to={`/chef/${id}`}>View Recipes</Link>
+                    <button className="btn btn-outline hover:text-yellow-500">Purches</button>
+                    <button className="btn btn-outline hover:text-yellow-500">
+                        <Link to={`/chef/${id}`} className=' flex gap-2'>View Recipes <FaArrowRight></FaArrowRight></Link>
                     </button>
                 </div>
             </div>

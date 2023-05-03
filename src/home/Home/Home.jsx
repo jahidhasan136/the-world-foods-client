@@ -30,7 +30,6 @@ const Home = () => {
     ];
 
     return (
-        <div className="">
             <div  className="container mx-auto mt-5">
                 <Carousel showThumbs={false} showStatus={false} autoPlay infiniteLoop interval={6000}>
                     {carouselItems.map((item) => (
@@ -41,8 +40,6 @@ const Home = () => {
                 </Carousel>
                 <ChefSection></ChefSection>
             </div>
-                <Footer></Footer>
-        </div>
     );
 };
 
