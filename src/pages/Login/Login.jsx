@@ -7,11 +7,11 @@ const Login = () => {
     return (
         <div className="heromin-h-screen flex justify-center">
             <div className="hero-content flex-col">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now</h1>
-                </div>
                 <div className="card flex-shrink-0 w-[500px] shadow-2xl bg-base-100">
-                    <img className='rounded-md' src={login} alt="" />
+                    <img className='rounded-md relative' src={login} alt="" />
+                    <div className="text-center absolute mt-36 ml-32 text-white lg:text-left">
+                        <h1 className="text-5xl font-bold">Login now</h1>
+                    </div>
                     <div className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -29,9 +29,9 @@ const Login = () => {
                             </label>
                         </div>
                         <p><small>Don't Have An Account ? <Link className='font-bold underline text-primary' to='/register'>Registration</Link></small></p>
-                        <div className="form-control mt-6">
+                            <p className='text-red-500 mt-4'><small>error</small></p>
+                        <div className="form-control">
                             <button className="btn btn-outline hover:text-yellow-500">Login</button>
-                        <p className='text-red-500'><small>error</small></p>
                         </div>
                         <div className='flex justify-between'>
                             <button className='btn flex gap-2 btn-outline hover:text-yellow-500'><FaGoogle className='text-blue-600'></FaGoogle> Google</button>
