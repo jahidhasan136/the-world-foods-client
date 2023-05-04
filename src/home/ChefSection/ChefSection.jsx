@@ -7,7 +7,7 @@ const ChefSection = () => {
     const [chef, setChef] = useState([])
 
     useEffect( () => {
-        fetch('http://localhost:5000/chef')
+        fetch('https://the-world-of-food-server-nurmorshed7987-gmailcom.vercel.app/chef')
         .then(res => res.json())
         .then(data => setChef(data))
         .catch(error => console.log(error))

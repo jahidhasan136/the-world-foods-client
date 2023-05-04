@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: '/chef/:id',
                 element: <PrivateRoute><ChefRecipe></ChefRecipe></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
+                loader: ({ params }) => fetch(`https://the-world-of-food-server-nurmorshed7987-gmailcom.vercel.app/chef/${params.id}`)
             },
             {
                 path: '/register',
