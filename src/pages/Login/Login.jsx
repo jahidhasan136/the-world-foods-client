@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import login from '../../assets/login.jpg'
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { logIn, googleLogin, githubLogin } = useContext(AuthContext)
+    const { logIn, googleLogin, githubLogin, setLoader } = useContext(AuthContext)
+    const [error, setError] = useState('')
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const singIn = event => {
         event.preventDefault()
@@ -20,9 +25,12 @@ const Login = () => {
             .then(result => {
                 const login = result.user
                 console.log(login)
+                navigate(from, {replace: true})
             })
             .catch(error => {
-                console.error(error)
+                setError(error.message)
+                
+                setLoader(false)
             })
 
 

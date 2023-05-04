@@ -24,7 +24,6 @@ const RacipeItem = ({ item }) => {
                     />
                     <div>
                         <button onClick={notify} className='btn rounded gap-2 text-yellow-500' ><FaRegHeart className='text-lg'></FaRegHeart> favourit</button>
-                        <ToastContainer />
                     </div>
                 </div>
             </div>

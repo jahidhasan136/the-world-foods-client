@@ -2,10 +2,11 @@ import React from 'react';
 import { useContext } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Registration = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const { createUser, setLoader } = useContext(AuthContext)
 
     const handleSignup = event => {
         event.preventDefault()
@@ -16,18 +17,37 @@ const Registration = () => {
         const password = form.password.value
         const confirm = form.confirm.value
 
-        console.log(name, photo, email, password, confirm)
+        if(password !== confirm){
+            console.log('password not matched')
+            return
+        }
 
         createUser(email, password)
-        .then(result => {
-            const signUp = result.user
-            console.log(signUp)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+            .then(result => {
+                const signUp = result.user
+                console.log(signUp)
+                form.reset()
+                handleProfile(result.user, name, photo)
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
+
+    const handleProfile = (user, name, photo) => {
+        setLoader(true)
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+            .then(() => { 
+                setLoader(false)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
     return (
         <div className="heromin-h-screen flex justify-center my-24">
             <div className="hero-content flex-col">
@@ -40,32 +60,32 @@ const Registration = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="write your name" className="input input-bordered" required/>
+                            <input type="text" name="name" placeholder="write your name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">PhotoURL</span>
                             </label>
-                            <input type="text" name="photo" placeholder="photoURL" className="input input-bordered" required/>
+                            <input type="text" name="photo" placeholder="photoURL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="wite your email" className="input input-bordered" required/>
+                            <input type="email" name="email" placeholder="wite your email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="write your password" className="input input-bordered" required/>
+                            <input type="password" name="password" placeholder="write your password" className="input input-bordered" required />
 
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="password" name="confirm" placeholder="write your password" className="input input-bordered" required/>
+                            <input type="password" name="confirm" placeholder="write your password" className="input input-bordered" required />
 
                         </div>
                         <p><small>Already Have An Account ? <Link className='font-bold underline text-primary' to='/login'>Login</Link></small></p>
