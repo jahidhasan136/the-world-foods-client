@@ -35,10 +35,10 @@ const Header = () => {
                                         user ? <img src={user?.photoURL} tabIndex={0} className="w-10 rounded-full" /> :
                                             <img src={userImage} tabIndex={0} className="w-10 rounded-full" />
                                     }
-                                    <ul tabIndex={0} className="dropdown-content absolute transition-all duration-300 right-0 top-10 menu p-2 shadow bg-base-100">
+                                    <ul tabIndex={0} className="dropdown-content absolute transition-all duration-300 right-0 top-10 menu p-5 shadow bg-base-100">
                                         <li>{user?.displayName}</li>
                                         <li>
-                                            <button onClick={handleLogout} className='btn btn-ghost'>logout</button>
+                                            <button onClick={handleLogout} className='btn btn-ghost mt-4'>logout</button>
                                         </li>
                                     </ul>
                                 </div> :
