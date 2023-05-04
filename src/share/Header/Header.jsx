@@ -3,6 +3,7 @@ import userImage from '../../assets/user.png'
 import foodWorld from '../../assets/foodworld.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import ActiveLink from '../../pages/ActiveLink/ActiveLink';
 
 const Header = () => {
 
@@ -22,10 +23,10 @@ const Header = () => {
                 <div className="flex-1">
                     <img className='w-28' src={foodWorld} alt="" />
                 </div>
-                <div className="flex-none">
+                <div className="flex-none gap-5">
                     <div className='flex gap-5'>
-                        <Link className='btn btn-ghost font-bold' to="/">Home</Link>
-                        <a className='btn btn-ghost font-bold' href="">Blog</a>
+                        <ActiveLink className='btn btn-ghost font-bold' to="/">Home</ActiveLink>
+                        <ActiveLink className='btn btn-ghost font-bold' to="/blog">Blog</ActiveLink>
                     </div>
                     <div className='flex items-center gap-5'>
                         {
