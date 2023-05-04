@@ -6,15 +6,15 @@ import image3 from '../../assets/image3.jpg'
 const ChefQualification = () => {
     return (
         <div className='mt-20 grid justify-center'>
-            <h2 className='mb-5 font-bold text-5xl text-center'>Chef Qualification</h2>
-            <div className='lg:flex gap-5 mt-10'>
+            <h2 className='mb-5 font-bold text-5xl text-center'>Educational Qualification</h2>
+            <div className='lg:flex mx-auto gap-5 mt-10'>
                 <div className="card card-compact w-96 bg-base-100 shadow-xl mb-4">
                     <figure><img src={image1} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Zhang Wei</h2>
                         <p>Degree: Bachelor of Culinary Arts</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
+                        <div className="card-actions rating justify-end">
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                         </div>
                     </div>
                 </div>
@@ -23,8 +23,8 @@ const ChefQualification = () => {
                     <div className="card-body">
                         <h2 className="card-title">Liu Ming</h2>
                         <p>Degree: Master of Chinese Cuisine</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
+                        <div className="card-actions rating justify-end">
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                         </div>
                     </div>
                 </div>
@@ -33,8 +33,8 @@ const ChefQualification = () => {
                     <div className="card-body">
                         <h2 className="card-title">Wang Ying</h2>
                         <p>Degree: Doctor of Gastronomy</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
+                        <div className="card-actions rating justify-end">
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                         </div>
                     </div>
                 </div>
