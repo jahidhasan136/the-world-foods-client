@@ -6,8 +6,8 @@ import image3 from '../../assets/image3.jpg'
 const ChefQualification = () => {
     return (
         <div className='mt-20 grid justify-center'>
-            <h2 className='mb-5 font-bold text-5xl text-center'>Educational Qualification</h2>
-            <div className='lg:flex mx-auto gap-5 mt-10'>
+            <h2 className='font-bold text-5xl lg:text-center'>Educational Qualification</h2>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 mx-auto gap-5 mt-10'>
                 <div className="card card-compact w-96 bg-base-100 shadow-xl mb-4">
                     <figure><img src={image1} alt="Shoes" /></figure>
                     <div className="card-body">

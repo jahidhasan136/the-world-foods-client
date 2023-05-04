@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
@@ -8,6 +8,7 @@ const Registration = () => {
 
     const { createUser, setLoader } = useContext(AuthContext)
     const [error, setError] = useState('')
+    const navigate = useNavigate()
 
     const handleSignup = event => {
         event.preventDefault()
@@ -23,12 +24,14 @@ const Registration = () => {
             return
         }
 
+        setError('')
         createUser(email, password)
             .then(result => {
                 const signUp = result.user
                 console.log(signUp)
                 form.reset()
                 handleProfile(result.user, name, photo)
+                navigate('/')
             })
             .catch(error => {
                 setError(error.message)
@@ -90,7 +93,7 @@ const Registration = () => {
 
                         </div>
                         <p><small>Already Have An Account ? <Link className='font-bold underline text-primary' to='/login'>Login</Link></small></p>
-                        <p className='text-red-500 mt-5'><small>error</small></p>
+                        <p className='text-red-500 mt-5'><small>{error}</small></p>
                         <div className="form-control">
                             <button className="btn btn-outline hover:text-yellow-500">Register</button>
                         </div>

@@ -12,8 +12,8 @@ const ChefRecipe = () => {
     const { id, name, picture, racipe, years_of_experience, likes, bio, racipe_list } = chefRacipe
 
     return (
-        <div className='container mx-auto  mt-32 lg:flex lg:justify-between'>
-            <div className="bg-base-200 md:mb-10 lg:w-[400px] md:rounded-xl lg:rounded-full relative">
+        <div className='container mx-auto  pt-32 lg:flex lg:justify-between'>
+            <div className="bg-base-200 mt-32 md:mb-10 lg:w-[400px] md:rounded-xl lg:rounded-full relative">
                 <div className='flex justify-center'>
                     <img className="w-56 rounded-full absolute -mt-20" src={picture} alt="" />
                 </div>

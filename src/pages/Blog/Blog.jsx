@@ -4,8 +4,8 @@ import DownloadPdf from '../DownloadPdf/DownloadPdf';
 const Blog = () => {
     return (
         <div>
-            <div id='download-pdf' className='container mx-auto text-justify grid lg:grid-cols-3 gap-4 mt-10'>
-                <div className='border p-3 rounded-md'>
+            <div id='download-pdf' className='container mx-auto text-justify grid lg:grid-cols-3 gap-4 pt-10'>
+                <div className='border p-3 rounded-md mt-32'>
                     <h2 className='font-bold text-2xl mb-3'><span className='text-red-500'>Ques 01:</span> The differences between uncontrolled and controlled components.</h2>
                     <p><span className='font-bold text-lg'>Ans:</span> An uncontrolled component is one whose state is managed by the DOM, rather than by React. In other words, the values of the input fields in an uncontrolled component are stored in the DOM, and not in the component's state. To access these values, you would need to use a ref to get the DOM node and then extract the value. Uncontrolled components are easier to set up, but can be harder to validate and manipulate their values.
                         A controlled component, on the other hand, is one whose state is managed by React. The component's state is used to store the value of the input field and any changes to the value will be handled by a change handler function. In other words, the value of the input field is always stored in the component's state and can be accessed and manipulated easily through the component's props. Controlled components are more flexible and can be easily validated and manipulated, but require more code to set up.</p>

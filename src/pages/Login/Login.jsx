@@ -19,18 +19,18 @@ const Login = () => {
         const form = event.target
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password)
 
+        setError('')
         logIn(email, password)
             .then(result => {
                 const login = result.user
                 console.log(login)
+                form.reset()
                 navigate(from, {replace: true})
             })
             .catch(error => {
                 setError(error.message)
                 
-                setLoader(false)
             })
 
 
@@ -44,7 +44,7 @@ const Login = () => {
                 console.log(google)
             })
             .catch(error => {
-                console.error(error)
+                setError(error.message)
             })
     }
 
@@ -55,7 +55,7 @@ const Login = () => {
                 console.log(github)
             })
             .catch(error => {
-                console.error(error)
+                setError(error.message)
             })
     }
 
@@ -85,7 +85,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <p><small>Don't Have An Account ? <Link className='font-bold underline text-primary' to='/register'>Registration</Link></small></p>
-                            <p className='text-red-500 mt-4'><small>error</small></p>
+                            <p className='text-red-500 mt-4'><small>{error}</small></p>
                             <div className="form-control">
                                 <button className="btn btn-outline hover:text-yellow-500">Login</button>
                             </div>
