@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import foodImage from '../../assets/foodworld.png'
 
 const Footer = () => {
     return (
@@ -30,6 +31,9 @@ const Footer = () => {
                 <div className="items-center grid-flow-col">
 
                     <p>Jahid Hasan <br /><span className="italic">jh3495689@gmail.com</span></p>
+                </div>
+                <div>
+                    <img className='w-20' src={foodImage} alt="" />
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4 text-lg">
