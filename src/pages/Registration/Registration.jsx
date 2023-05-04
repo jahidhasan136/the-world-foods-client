@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
@@ -7,6 +7,7 @@ import { updateProfile } from 'firebase/auth';
 const Registration = () => {
 
     const { createUser, setLoader } = useContext(AuthContext)
+    const [error, setError] = useState('')
 
     const handleSignup = event => {
         event.preventDefault()
@@ -18,7 +19,7 @@ const Registration = () => {
         const confirm = form.confirm.value
 
         if(password !== confirm){
-            console.log('password not matched')
+            setError('password not matched')
             return
         }
 
@@ -30,7 +31,7 @@ const Registration = () => {
                 handleProfile(result.user, name, photo)
             })
             .catch(error => {
-                console.error(error)
+                setError(error.message)
             })
     }
 
@@ -45,7 +46,7 @@ const Registration = () => {
                 setLoader(false)
             })
             .catch(error => {
-                console.error(error)
+                setError(error.message)
             })
     }
     return (

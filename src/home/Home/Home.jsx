@@ -6,6 +6,7 @@ import banner2 from '../../assets/5907476.jpg';
 import ChefSection from '../ChefSection/ChefSection';
 import Footer from '../../share/Footer/Footer';
 import ChefQualification from '../ChefQualification/ChefQualification';
+import BestSpecialties from '../../pages/BestSpecialties/BestSpecialties';
 
 const Home = () => {
 
@@ -41,6 +42,7 @@ const Home = () => {
                 </Carousel>
                 <ChefSection></ChefSection>
                 <ChefQualification></ChefQualification>
+                <BestSpecialties></BestSpecialties>
             </div>
     );
 };
