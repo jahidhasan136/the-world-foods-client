@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import ActiveLink from '../../pages/ActiveLink/ActiveLink';
 import { useEffect } from 'react';
+import { IoClose, IoMenu } from "react-icons/io5";
 
 const Header = () => {
 
     const { user, logout } = useContext(AuthContext)
+    const [navState, setNavState] = useState(false);
+    const [open, setOpen] = useState(false)
 
     const handleLogout = () => {
         logout()
@@ -18,7 +21,6 @@ const Header = () => {
             })
     }
 
-    const [navState, setNavState] = useState(false);
 
     const onNavScroll = () => {
         if (window.scrollY > 40) {
@@ -30,15 +32,26 @@ const Header = () => {
     useEffect(() => {
         window.addEventListener("scroll", onNavScroll);
     }, []);
-    
+
     return (
         <div className={`fixed w-full z-50 transition-all duration-200 ease-in-out ${navState ? 'bg-[#00000070] text-white' : 'rounded-lg bg-base-200 z-10 w-full fixed'}`}>
             <div className="container mx-auto navbar">
                 <div className="flex-1">
                     <img className='w-28' src={foodWorld} alt="" />
                 </div>
-                <div className="flex-none gap-5">
-                    <div className='flex gap-5 font-bold'>
+                <div className='md:hidden' onClick={() => setOpen(!open)}>
+                    <span>
+                        {
+                            open === true
+                                ?
+                                <IoClose className="w-7 h-7"></IoClose>
+                                :
+                                <IoMenu className="w-7 h-7"></IoMenu>
+                        }
+                    </span>
+                </div>
+                <div className={`flex-none gap-5 md:static absolute ${open ? 'left-16 top-44 transition-all' : '-left-44'}`}>
+                    <div className='md:flex gap-5 font-bold'>
                         <ActiveLink className='btn btn-ghost font-bold' to="/">Home</ActiveLink>
                         <ActiveLink className='btn btn-ghost font-bold' to="/blog">Blog</ActiveLink>
                     </div>
