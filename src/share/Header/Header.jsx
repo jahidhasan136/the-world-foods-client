@@ -35,7 +35,7 @@ const Header = () => {
 
     return (
         <div className={`fixed w-full z-50 transition-all duration-200 ease-in-out ${navState ? 'bg-[#00000070] text-white' : 'rounded-lg bg-base-200 z-10 w-full fixed'}`}>
-            <div className="container mx-auto navbar">
+            <div className="relative container md:mx-auto navbar">
                 <div className="flex-1">
                     <img className='w-28' src={foodWorld} alt="" />
                 </div>
@@ -50,7 +50,7 @@ const Header = () => {
                         }
                     </span>
                 </div>
-                <div className={`flex-none gap-5 md:static absolute ${open ? 'left-16 top-44 transition-all' : '-left-44'}`}>
+                <div className="md:flex gap-5  hidden">
                     <div className='md:flex gap-5 font-bold'>
                         <ActiveLink className='btn btn-ghost font-bold' to="/">Home</ActiveLink>
                         <ActiveLink className='btn btn-ghost font-bold' to="/blog">Blog</ActiveLink>
@@ -58,18 +58,49 @@ const Header = () => {
                     <div className='flex items-center gap-5'>
                         {
                             user ?
-                                <div className="dropdown dropdown-hover relative text-black">
-                                    {
-                                        user ? <img src={user?.photoURL} tabIndex={0} className="w-10 rounded-full" /> :
-                                            <img src={userImage} tabIndex={0} className="w-10 rounded-full" />
-                                    }
-                                    <ul tabIndex={0} className="dropdown-content absolute transition-all duration-300 right-0 top-10 menu p-5 shadow bg-base-100">
+                                <div className="md:dropdown dropdown-hover relative md:text-black">
+                                        {
+                                            user ? <img src={user?.photoURL} tabIndex={0} className="w-10 rounded-full" /> :
+                                                <img src={userImage} tabIndex={0} className="w-10 rounded-full" />
+                                        }
+                                    <ul tabIndex={0} className="dropdown-content absolute transition-all duration-300 right-0 top-10 menu p-5 shadow md:bg-base-100">
                                         <li>{user?.displayName}</li>
                                         <li>
                                             <button onClick={handleLogout} className='btn btn-ghost mt-4'>logout</button>
                                         </li>
                                     </ul>
-                                </div> :
+                                </div> 
+                                :
+
+                                <Link className='btn btn-ghost' to="/login">login</Link>
+                        }
+                    </div>
+                </div>
+
+                        {/* mobile menu  */}
+
+                <div className={`flex-col gap-5 absolute  bg-[#000000a5] top-0 pl-16 items-start pt-28 w-64 h-screen text-white flex md:hidden transition-all duration-300 ease-in-out ${open ? 'left-0' : '-left-64'}`}>
+                    <div className='md:flex gap-5 font-bold'>
+                        <ActiveLink className='btn btn-ghost font-bold' to="/">Home</ActiveLink>
+                        <ActiveLink className='btn btn-ghost font-bold' to="/blog">Blog</ActiveLink>
+                    </div>
+                    <div className='flex items-center gap-5'>
+                        {
+                            user ?
+                                <div className="md:dropdown dropdown-hover relative md:text-black">
+                                        {
+                                            user ? <img src={user?.photoURL} tabIndex={0} className="w-10 rounded-full" /> :
+                                                <img src={userImage} tabIndex={0} className="w-10 rounded-full" />
+                                        }
+                                    <ul>
+                                        <li>{user?.displayName}</li>
+                                        <li>
+                                            <button onClick={handleLogout} className='btn btn-ghost mt-4'>logout</button>
+                                        </li>
+                                    </ul>
+                                </div> 
+                                :
+
                                 <Link className='btn btn-ghost' to="/login">login</Link>
                         }
                     </div>

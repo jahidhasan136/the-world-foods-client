@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import racipeBackImage from '../../assets/racipeback.jpg'
 import { Rating } from '@mui/material';
 import { FaRegHeart } from 'react-icons/fa';
@@ -7,8 +7,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const RacipeItem = ({ item }) => {
 
+
+    const [favourite, setFavourite] = useState(false)
+
     const { name, cooking_method, ingredients, rating } = item
-    const notify = () => toast("Wow so easy!");
+
+
+    const handleFavourite = () => {
+        if (!favourite) {
+            toast("favourit done")
+        }
+        setFavourite(true)
+    }
 
     return (
         <div className="card bg-base-100 shadow-xl image-full mb-5 h-[500px]">
@@ -23,7 +33,7 @@ const RacipeItem = ({ item }) => {
                         value={rating}
                     />
                     <div>
-                        <button onClick={notify} className='btn rounded gap-2 text-yellow-500' ><FaRegHeart className='text-lg'></FaRegHeart> favourit</button>
+                        <button onClick={handleFavourite} className={favourite ? 'btn rounded gap-2 bg-gray-700 hover:bg-gray-700  cursor-default text-yellow-500' : 'btn bg-black rounded gap-2 text-yellow-500'} ><FaRegHeart className='text-lg'></FaRegHeart> favourit</button>
                     </div>
                 </div>
             </div>
