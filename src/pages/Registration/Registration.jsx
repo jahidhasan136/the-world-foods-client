@@ -53,7 +53,7 @@ const Registration = () => {
             })
     }
     return (
-        <div className="heromin-h-screen flex justify-center my-24">
+        <div className="heromin-h-screen flex justify-center py-24">
             <div className="hero-content flex-col">
                 <div className="card flex-shrink-0 w-[500px] shadow-2xl bg-base-100">
                     <div className="text-center text-white lg:text-left">

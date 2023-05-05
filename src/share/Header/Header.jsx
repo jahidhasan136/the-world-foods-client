@@ -51,9 +51,9 @@ const Header = () => {
                     </span>
                 </div>
 
-                {/* desktop menu */}
+                {/* desktop responsive */}
 
-                <div className="md:flex gap-5  hidden">
+                <div className="md:flex gap-5 hidden">
                     <div className='md:flex gap-5 font-bold'>
                         <ActiveLink className='btn btn-ghost font-bold' to="/">Home</ActiveLink>
                         <ActiveLink className='btn btn-ghost font-bold' to="/blog">Blog</ActiveLink>
@@ -80,25 +80,25 @@ const Header = () => {
                     </div>
                 </div>
 
-                        {/* mobile menu  */}
+                        {/* mobile responsive  */}
 
-                <div className={`flex-col gap-5 absolute  bg-[#000000a5] top-0 pl-16 items-start pt-28 w-64 h-screen text-white flex md:hidden transition-all duration-300 ease-in-out ${open ? 'left-0' : '-left-64'}`}>
-                    <div className='md:flex gap-5 font-bold'>
+                <div className={`flex-col gap-5 absolute  bg-[#000000a5] top-0 px-8 items-center pt-28 w-64 h-screen text-white flex md:hidden transition-all duration-300 ease-in-out ${open ? 'left-0' : '-left-64'}`}>
+                    <div className='md:flex grid gap-5 font-bold'>
                         <ActiveLink className='btn btn-ghost font-bold' to="/">Home</ActiveLink>
                         <ActiveLink className='btn btn-ghost font-bold' to="/blog">Blog</ActiveLink>
                     </div>
-                    <div className='flex items-center gap-5'>
+                    <div className='flex items-center gap-6'>
                         {
                             user ?
-                                <div className="md:dropdown dropdown-hover relative md:text-black">
+                                <div className="grid gap-5">
                                         {
-                                            user ? <img src={user?.photoURL} tabIndex={0} className="w-10 rounded-full" /> :
-                                                <img src={userImage} tabIndex={0} className="w-10 rounded-full" />
+                                            user ? <img src={user?.photoURL} tabIndex={0} className="w-10 mx-auto rounded-full" /> :
+                                                <img src={userImage} tabIndex={0} className="w-10 rounded-full mx-auto" />
                                         }
-                                    <ul>
+                                    <ul className='text-center'>
                                         <li>{user?.displayName}</li>
                                         <li>
-                                            <button onClick={handleLogout} className='btn btn-ghost mt-4'>logout</button>
+                                            <button onClick={handleLogout} className='btn btn-outline text-yellow-500 hover:bg-yellow-500 hover:text-white mt-4'>logout</button>
                                         </li>
                                     </ul>
                                 </div> 

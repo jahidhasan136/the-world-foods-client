@@ -12,7 +12,7 @@ const Login = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location.state?.from?.pathname || '/' 
+    const from = location.state?.from?.pathname || '/'
 
     const singIn = event => {
         event.preventDefault()
@@ -26,11 +26,11 @@ const Login = () => {
                 const login = result.user
                 console.log(login)
                 form.reset()
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
-                
+
             })
 
 
@@ -42,6 +42,7 @@ const Login = () => {
             .then(result => {
                 const google = result.user
                 console.log(google)
+                navigate('/')
             })
             .catch(error => {
                 setError(error.message)
@@ -53,6 +54,7 @@ const Login = () => {
             .then(result => {
                 const github = result.user
                 console.log(github)
+                navigate('/')
             })
             .catch(error => {
                 setError(error.message)
