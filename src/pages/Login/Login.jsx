@@ -42,7 +42,7 @@ const Login = () => {
             .then(result => {
                 const google = result.user
                 console.log(google)
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -54,7 +54,7 @@ const Login = () => {
             .then(result => {
                 const github = result.user
                 console.log(github)
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)

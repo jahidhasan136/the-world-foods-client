@@ -10,8 +10,9 @@ const BestSpecialties = () => {
                     <div className="card-body">
                         <h2 className="card-title">Kung Pao chicken</h2>
                         <p>a spicy stir-fry dish made with diced chicken, peanuts, vegetables, and chili peppers.</p>
-                        <div className="card-actions justify-end">
-                        <h4 className='font-bold text-lg'>32$</h4>
+                        <div className="card-actions items-center justify-between">
+                        <button className='btn btn-outline hover:text-yellow-500'>Buy now</button>
+                        <h4 className='font-bold text-lg text-warning'>32$</h4>
                         </div>
                     </div>
                 </div>
@@ -20,8 +21,9 @@ const BestSpecialties = () => {
                     <div className="card-body">
                         <h2 className="card-title">Dumplings (Jiaozi)</h2>
                         <p>a type of filled dough that is boiled, steamed or fried, usually filled with minced meat and vegetables, served with a dipping sauce.</p>
-                        <div className="card-actions justify-end">
-                        <h4 className='font-bold text-lg'>8$</h4>
+                        <div className="card-actions items-center justify-between">
+                        <button className='btn btn-outline hover:text-yellow-500'>Buy now</button>
+                        <h4 className='font-bold text-lg text-warning'>8$</h4>
                         </div>
                     </div>
                 </div>
@@ -30,8 +32,9 @@ const BestSpecialties = () => {
                     <div className="card-body">
                         <h2 className="card-title">Hot Pot (Huǒguō)</h2>
                         <p>a communal dish where diners cook raw meats, vegetables, and noodles in a boiling pot of seasoned broth, often served with dipping sauces.</p>
-                        <div className="card-actions justify-end">
-                            <h4 className='font-bold text-lg'>12$</h4>
+                        <div className="card-actions items-center justify-between">
+                            <button className='btn btn-outline hover:text-yellow-500'>Buy now</button>
+                            <h4 className='font-bold text-lg text-warning'>12$</h4>
                         </div>
                     </div>
                 </div>

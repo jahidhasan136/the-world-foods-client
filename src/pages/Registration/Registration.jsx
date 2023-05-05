@@ -19,6 +19,11 @@ const Registration = () => {
         const password = form.password.value
         const confirm = form.confirm.value
 
+        
+        if(password.length < 6){
+            setError('your password should be 6 character')
+            return
+        }
         if(password !== confirm){
             setError('password not matched')
             return

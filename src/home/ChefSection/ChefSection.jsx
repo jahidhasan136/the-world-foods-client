@@ -14,7 +14,7 @@ const ChefSection = () => {
     }, [])
 
     return (
-        <div className='container px-4 md:px-8 lg:px-16 xl:px-20 mx-auto mt-20'>
+        <div className='container mx-auto mt-20'>
             <h2 className='text-5xl font-bold md:text-center'>World Chef</h2>
             <div className="grid justify-center lg:grid-cols-3 md:grid-cols-2 gap-5 mt-10">
                 {
