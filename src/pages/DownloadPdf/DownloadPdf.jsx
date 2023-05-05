@@ -15,7 +15,7 @@ const DownloadPdf = () => {
     };
 
     return (
-        <div className='flex justify-center mt-5'>
+        <div className='flex justify-center'>
             <button className='btn_regular btn bg-red-500 border-0' onClick={handleDownload}>Download Blogs PDF</button>
         </div>
     );
