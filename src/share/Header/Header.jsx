@@ -50,6 +50,9 @@ const Header = () => {
                         }
                     </span>
                 </div>
+
+                {/* desktop menu */}
+
                 <div className="md:flex gap-5  hidden">
                     <div className='md:flex gap-5 font-bold'>
                         <ActiveLink className='btn btn-ghost font-bold' to="/">Home</ActiveLink>

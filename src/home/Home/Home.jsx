@@ -32,7 +32,7 @@ const Home = () => {
     ];
 
     return (
-            <div  className="container mx-auto pt-40">
+            <div  className="container mx-auto pt-40 px-4 md:px-8 lg:px-16 xl:px-20">
                 <Carousel showThumbs={false} showStatus={false} autoPlay infiniteLoop interval={6000}>
                     {carouselItems.map((item) => (
                         <div key={item.id}>

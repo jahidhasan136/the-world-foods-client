@@ -9,7 +9,7 @@ const ChefInformation = ({ chefInformation }) => {
     console.log(chefInformation)
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 shadow-xl">
             <figure>
                 <LazyLoad className='offset={130} threshold={0.95}
 '>
